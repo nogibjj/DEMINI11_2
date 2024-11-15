@@ -1,23 +1,21 @@
-name: CI
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+install:
+  pip install --upgrade pip && pip install -r requirements.txt
+test:
+  python -m pytest -vv --cov=main --cov=mylib test_*.py
+format:
+  black *.py 
+lint:
+  ruff check *.py mylib/*.py
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: install packages
-        run: make install
-      - name: lint
-        run: make lint
-      - name: test
-        run: make test
-      - name: format
-        run: make format
-      - name: deploy
-        run: make deploy
+
+container-lint:
+    docker run --rm -i hadolint/hadolint < Dockerfile
+refactor: format lint
+
+deploy:
+	# Deploy goes here
+
+all: install lint test format deploy
+
+job:
+  python run_job.py

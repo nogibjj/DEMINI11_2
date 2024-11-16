@@ -39,6 +39,7 @@ The Data Extraction and Transformation Pipeline project aims to retrieve and pro
 9. Query and Viz Task: `mylib/query_viz.py`
 
 ## Job Run from Automated Trigger:
+<img width="1077" alt="image" src="https://github.com/user-attachments/assets/4c11ee98-8dd7-4193-b15b-b2d6dd31ae16">
 
 
 ## Check format and test errors
@@ -47,10 +48,13 @@ The Data Extraction and Transformation Pipeline project aims to retrieve and pro
 3. Lint code `make lint`
 
 ## Sample Viz from Query: 
+![image](https://github.com/user-attachments/assets/d48e673b-bbb1-4afd-a0ab-f76b895ddf4f)
+![image](https://github.com/user-attachments/assets/2593208f-1707-4881-b5d8-ecf352378453)
+![image](https://github.com/user-attachments/assets/d03074c5-3b93-420b-a317-d4963a21b9fa)
 
 
 ## References
 
-
+https://github.com/nogibjj/python-ruff-template 
 
 

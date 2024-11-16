@@ -1,8 +1,8 @@
-import sys
-from unittest.mock import MagicMock
+# import sys
+# from unittest.mock import MagicMock
 import requests
-from dotenv import load_dotenv
-import os
+# from dotenv import load_dotenv
+# import os
 
 # sys.modules["dbutils"] = MagicMock()
 
@@ -11,7 +11,7 @@ Test databricks fucntionaility
 """
 
 
-
+DATBRICKS_HOST = "dbc-c95fb6bf-a65d.cloud.databricks.com"
 
 # headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
 

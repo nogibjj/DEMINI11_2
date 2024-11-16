@@ -60,14 +60,6 @@ except requests.ConnectionError as e:
     print("Connection error:", e)
 
 
-# COMMAND ----------
-
-dbutils.fs.put("dbfs:/FileStore/.env", """
-SERVER_HOSTNAME = "dbc-c95fb6bf-a65d.cloud.databricks.com"
-ACCESS_TOKEN = "dapi265dbf9df531b4323b162d622cb136e1"
-HTTP_PATH = "/sql/1.0/warehouses/2d6f41451e6394c0"
-JOB_ID = "1004965230252512"
-""", overwrite=True)
 
 
 # COMMAND ----------

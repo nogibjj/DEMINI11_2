@@ -1,4 +1,4 @@
-[![CI](https://github.com/nogibjj/DEmini11/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/DEmini11/actions/workflows/cicd.yml)
+[![CI](https://github.com/nogibjj/DEMINI11_2/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/DEMINI11_2/actions/workflows/cicd.yml)
 
 ## DEmini11 : Data Pipeline with Databricks
 

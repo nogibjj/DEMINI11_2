@@ -19,6 +19,8 @@ The Data Extraction and Transformation Pipeline project aims to retrieve and pro
 4. **Query Transformation and Vizulization:**
    - Defines a Spark SQL query to perform a predefined transformation on the retrieved data.
    - Uses the predifined transformation Spark dataframe to create vizualizations
+   - ![image](https://github.com/user-attachments/assets/f279149d-7b0b-49dc-b5ad-3edb80aaca7e)
+
 
 5. **File Path Checking for `make test`:**
    - Implements a function to check if a specified file path exists in the Databricks FileStore.

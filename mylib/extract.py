@@ -7,6 +7,31 @@ import os
 from dotenv import load_dotenv
 import base64
 
+
+
+def check_filestore_path(path, headers, host="dbc-c95fb6bf-a65d.cloud.databricks.com"):
+    """
+    Check if a given path exists in the Databricks FileStore.
+    Args:
+        path (str): Path in Databricks FileStore.
+        headers (dict): Authorization headers.
+        host (str): Hostname for the Databricks workspace.
+
+    Returns:
+        bool: True if the path exists, False otherwise.
+    """
+    try:
+        response = requests.get(
+            f"https://{host}/api/2.0/dbfs/get-status?path={path}",
+            headers=headers
+        )
+        response.raise_for_status()
+        return response.json().get("is_dir", False)
+    except requests.exceptions.RequestException as e:
+        print(f"Error checking file path: {e}")
+        return False
+
+
 load_dotenv()
 FILESTORE_PATH = "dbfs:/FileStore/tables/"
 CSV_URL = "https://raw.githubusercontent.com/SamanthaSmiling/stats/refs/heads/main/ds_salaries.csv"

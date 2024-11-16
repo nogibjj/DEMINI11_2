@@ -16,7 +16,7 @@ Test databricks fucntionaility
 load_dotenv()
 server_h = os.getenv("SERVER_HOSTNAME")
 access_token = os.getenv("ACCESS_TOKEN")
-FILESTORE_PATH = "dbfs:/FileStore/tables"
+FILESTORE_PATH = "dbfs:/FileStore/tables/"
 url = f"https://{server_h}/api/2.0"
 
 # Function to check if a file path exists and auth settings still work

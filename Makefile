@@ -1,3 +1,8 @@
+env:
+  DATBRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+  ACCESS_TOKEN: ${{ secrets.DATABRICKS_ACCESS_TOKEN }}
+
+
 install:
 	pip install --upgrade pip && pip install -r requirements.txt
 

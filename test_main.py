@@ -1,7 +1,16 @@
+import pytest
+from mylib.extract import extract
+from mylib.transform_load import load
+from mylib.query_viz import query_transform, viz
+import main
+import sys
+from unittest.mock import MagicMock
+
+sys.modules['dbutils'] = MagicMock()
+
 """
 Test databricks fucntionaility
 """
-
 import requests
 from dotenv import load_dotenv
 import os
@@ -10,7 +19,7 @@ import os
 load_dotenv()
 server_h = os.getenv("SERVER_HOSTNAME")
 access_token = os.getenv("ACCESS_TOKEN")
-FILESTORE_PATH = "dbfs:/FileStore/tables"
+FILESTORE_PATH = "dbfs:/FileStore/mini_project11"
 url = f"https://{server_h}/api/2.0"
 
 # Function to check if a file path exists and auth settings still work

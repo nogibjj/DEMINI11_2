@@ -15,11 +15,14 @@ The Data Extraction and Transformation Pipeline project aims to retrieve and pro
 
 3. **Data Transformation and Load**
     - Transform the csv file into a Spark dataframe which is then converted into a Delta Lake Table and stored in the Databricks environement
+    - <img width="1276" alt="image" src="https://github.com/user-attachments/assets/f488d76e-a52b-4397-b7c0-75814d0d0225">
+
 
 4. **Query Transformation and Vizulization:**
    - Defines a Spark SQL query to perform a predefined transformation on the retrieved data.
    - Uses the predifined transformation Spark dataframe to create vizualizations
-   - ![image](https://github.com/user-attachments/assets/f279149d-7b0b-49dc-b5ad-3edb80aaca7e)
+  <img width="1249" alt="image" src="https://github.com/user-attachments/assets/4a840336-3f69-457b-b1b8-d368bd394539">
+
 
 
 5. **File Path Checking for `make test`:**

@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import base64
 
 load_dotenv()
-FILESTORE_PATH = "dbfs:/DEmini11/FileStore/"
+FILESTORE_PATH = "dbfs:/FileStore/tables/"
 CSV_URL = "https://raw.githubusercontent.com/SamanthaSmiling/stats/refs/heads/main/ds_salaries.csv"
 SERVER_HOSTNAME = os.getenv("SERVER_HOSTNAME")
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
@@ -62,7 +62,7 @@ def extract():
     """Downloads CSV file and uploads it to DBFS."""
     response = requests.get(CSV_URL)
     if response.status_code == 200:
-        local_file = "/tmp/ds_salaries.csv"
+        local_file = "/ds_salaries.csv"
         with open(local_file, "wb") as f:
             f.write(response.content)
         upload_to_dbfs(local_file, f"{FILESTORE_PATH}/ds_salaries.csv")

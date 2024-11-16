@@ -8,7 +8,7 @@ from pyspark.sql import SparkSession
 def load():
     """Loads data into Delta tables."""
     spark = SparkSession.builder.appName("TransformLoad").getOrCreate()
-    file_path = "dbfs:/FileStore/mini_project11/ds_salaries.csv"
+    file_path = "dbfs:/FileStore/tables/ds_salaries.csv"
     df = spark.read.csv(file_path, header=True, inferSchema=True)
 
     # Drop existing table if any

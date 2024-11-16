@@ -1,6 +1,7 @@
 # Databricks notebook source
 #!pip install -r ../requirements.txt
 
+
 # COMMAND ----------
 
 import requests
@@ -9,6 +10,9 @@ from dotenv import load_dotenv
 import os
 
 import base64
+os.environ["ACCESS_TOKEN"] = "dapi265dbf9df531b4323b162d622cb136e1"
+os.environ["JOB_ID"] = "1004965230252512"
+os.environ["SERVER_HOSTNAME"] = "dbc-c95fb6bf-a65d.cloud.databricks.com"
 
 FILESTORE_PATH = "dbfs:/FileStore/tables/"
 CSV_URL = "https://raw.githubusercontent.com/SamanthaSmiling/stats/refs/heads/main/ds_salaries.csv"
@@ -35,13 +39,14 @@ headers = {
 data = {
     'job_id': job_id
 }
-
-response = requests.post(url, headers=headers, json=data)
+print(f'https://{server_h}/api/2.0/jobs/run-now')
+response = requests.post(f'https://{server_h}/api/2.0/jobs/run-now', headers=headers, json=data)
 
 if response.status_code == 200:
     print('Job run successfully triggered')
 else:
     print(f'Error: {response.status_code}, {response.text}')
+
 
 # COMMAND ----------
 
@@ -89,11 +94,16 @@ def upload_to_dbfs(local_file, dbfs_path):
 
 # COMMAND ----------
 
+response = requests.get(CSV_URL)
+print(response)
+
+# COMMAND ----------
+
 def extract():
     """Downloads CSV file and uploads it to DBFS."""
     response = requests.get(CSV_URL)
     if response.status_code == 200:
-        local_file = "/ds_salaries.csv"
+        local_file = "ds_salaries.csv"
         with open(local_file, "wb") as f:
             f.write(response.content)
         upload_to_dbfs(local_file, f"{FILESTORE_PATH}/ds_salaries.csv")
@@ -106,6 +116,7 @@ def extract():
 extract()
 
 # COMMAND ----------
+
 """
 Loads data into Spark and writes to Delta tables
 """
@@ -129,9 +140,11 @@ def load():
     print("Data loaded into Delta table 'ds_salaries_delta'.")
 
 # COMMAND ----------
+
 load()
 
 # COMMAND ----------
+
 """
 Queries and visualizes data from Delta tables
 """
@@ -141,6 +154,7 @@ import matplotlib.pyplot as plt
 
 
 # COMMAND ----------
+
 def query_transform():
     """Runs a predefined query on the Delta table."""
     spark = SparkSession.builder.appName("QueryTransform").getOrCreate()
@@ -179,6 +193,7 @@ def viz():
     print("Visualization saved as 'salary_trend.png'.")
 
 # COMMAND ----------
+
 query_transform()
 
 # COMMAND ----------
@@ -188,4 +203,5 @@ viz()
 
 
 # COMMAND ----------
+
 

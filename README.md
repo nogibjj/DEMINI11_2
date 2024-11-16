@@ -3,7 +3,7 @@
 ## DEmini11 : Data Pipeline with Databricks
 
 **Overview:**
-The Data Extraction and Transformation Pipeline project aims to retrieve and process tennis match data from Kaggle datasets, which restored in gitlab and then DataBricks. 
+The Data Extraction and Transformation Pipeline project aims to process Data Scientists' Salary data from Kaggle, which restored in gitlab and then DataBricks. 
 
 **Key Components:**
 1. **Data Extraction:**
@@ -61,5 +61,5 @@ The Data Extraction and Transformation Pipeline project aims to retrieve and pro
 ## References
 
 https://github.com/nogibjj/python-ruff-template 
-
+https://www.kaggle.com/discussions/general/434749
 

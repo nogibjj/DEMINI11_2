@@ -62,7 +62,7 @@ def extract():
     """Downloads CSV file and uploads it to DBFS."""
     response = requests.get(CSV_URL)
     if response.status_code == 200:
-        local_file = "/ds_salaries.csv"
+        local_file = "FileStore/ds_salaries.csv"
         with open(local_file, "wb") as f:
             f.write(response.content)
         upload_to_dbfs(local_file, f"{FILESTORE_PATH}/ds_salaries.csv")

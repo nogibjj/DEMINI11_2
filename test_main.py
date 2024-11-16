@@ -1,19 +1,16 @@
-import pytest
-from mylib.extract import extract
-from mylib.transform_load import load
-from mylib.query_viz import query_transform, viz
-import main
+
 import sys
 from unittest.mock import MagicMock
+import requests
+from dotenv import load_dotenv
+import os
 
 sys.modules['dbutils'] = MagicMock()
 
 """
 Test databricks fucntionaility
 """
-import requests
-from dotenv import load_dotenv
-import os
+
 
 # Load environment variables
 load_dotenv()
